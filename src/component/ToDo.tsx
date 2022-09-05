@@ -66,11 +66,8 @@ function CreateTodo({text , category, id}:ITodo){
             <Btn onClick={()=>onClick('DOING')}>Doing</Btn>
             <Btn onClick={()=>onClick('DONE')}>Done</Btn> */}
             {/* 해당상태에 버튼은 안보임  = 방법2*/}
- 
             {category !== "TO_DO" && <Btn name="TO_DO" onClick={onClick}>To Do</Btn>}
-    
             {category !== "DOING" && <Btn name="DOING" onClick={onClick}>Doing</Btn>}
-     
             {category !== "DONE" && <Btn name="DONE" onClick={onClick}>Done</Btn>}
             </Flex>
         </ToDoli>
