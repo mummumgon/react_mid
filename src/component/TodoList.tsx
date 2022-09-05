@@ -1,6 +1,7 @@
-import { useRecoilValue } from "recoil";
+import React from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
-import {toDoSelector, toDoState} from '../atoms'
+import {categoryState, toDoSelector, toDoState} from '../atoms'
 import CreateTodos from "./CreateToDos";
 import ToDo from './ToDo';
 interface IForm{
@@ -36,33 +37,26 @@ const ToDoUl = styled.ul`
 
 
 function ToDoList(){
-   const toDos = useRecoilValue(toDoState);
-   const [todo,doing,done] = useRecoilValue(toDoSelector);
+    const toDos = useRecoilValue(toDoSelector);
+   const [category, setCategory] = useRecoilState(categoryState);
+   const onInput = (e:React.FormEvent<HTMLSelectElement>) =>{
+    const {value} = e.currentTarget;
+    setCategory(value);
+   };
+   console.log(category);
     return <Container><div>
         <Title>To Dos</Title>
         <CreateTodos/>
-            <hr/>
-            <h2>TODO</h2>
-            <hr/>
-            <ToDoUl>
-            {/* toDo가 같은 (interface ITodo)타입을 사용하기에 가능한 문법 <ToDo {...toDo}/> 다르면 안됨!*/}
-            {/* 분할할때 키값은 부모페이지에서 줌! */}
-            {todo.map((toDo)=><ToDo key={toDo.id} {...toDo}/>)} 
-            </ToDoUl>
-            <hr/>
-            <h2>DOING</h2>
-            <hr/>
-            <ToDoUl>
-            {doing.map((toDo)=><ToDo key={toDo.id} {...toDo}/>)} 
-            </ToDoUl>
-            <hr/>
-            <h2>DONE</h2>
-            <hr/>
-            <ToDoUl>
-            {done.map((toDo)=><ToDo key={toDo.id} {...toDo}/>)} 
-            </ToDoUl>
+          <select value={category} onInput={onInput}>
+            <option value="TO_DO">TO_DO</option>
+            <option value="DOING">DOING</option>
+            <option value="DONE">DONE</option>
+          </select>
     </div>
+    
+    {toDos.map(todo => <ToDo key={todo.id} {...todo}/>)}
     </Container>
+    
 }
 
 export default ToDoList;
