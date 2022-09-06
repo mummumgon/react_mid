@@ -14,7 +14,7 @@ function App() {
     setHoure(+value);
   };
   return (
-    <div>
+    <div> 
       <input value={minuts} onChange={onMChange} type="number"  placeholder="minutes..."/>
       <input value={houre} onChange={onHChange} type="number" placeholder="hours..."/>
     </div>
