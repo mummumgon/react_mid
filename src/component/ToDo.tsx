@@ -1,6 +1,6 @@
 import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { ITodo , toDoState } from "../atoms";
+import { categorys, ITodo , toDoState } from "../atoms";
 
 const ToDoli = styled.li`
 border-bottom: 1px solid #eee;
@@ -23,13 +23,10 @@ border-bottom: 1px solid #eee;
 const Btn = styled.button`
     flex: 1;
     height: 30px;
-    margin: 0 5px;
 `;
 const Flex = styled.div`
     display: flex;
     align-items: center;
-    margin : 0 -5px;
-    padding: 10px 0;
 `;
 
 function CreateTodo({text , category, id}:ITodo){
@@ -40,7 +37,6 @@ function CreateTodo({text , category, id}:ITodo){
     // };
     const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         const { name } = e.currentTarget;
-
         setToDos((oldToDO)=>{
             //target의 경로 찾기
             const toDoIndex = oldToDO.findIndex(oldTD => oldTD.id === id);
@@ -48,7 +44,14 @@ function CreateTodo({text , category, id}:ITodo){
             //[category:name as any] 원래는 그냥 스트링인데 체크하지 말라고 as any적음
             const newToDo = {text , id, category:name as any};
             //새로 배열 조함
-            const newArr = [...oldToDO.slice(0,toDoIndex),newToDo,...oldToDO.slice(toDoIndex+1)];
+            let newArr =[];
+            //remove클릭시 localstoragy에 삭제
+            if(name === categorys.REMOVE){
+                newArr = [...oldToDO.slice(0,toDoIndex),...oldToDO.slice(toDoIndex+1)];
+            }else{
+                newArr = [...oldToDO.slice(0,toDoIndex),newToDo,...oldToDO.slice(toDoIndex+1)];
+            };
+            console.log(name);
             return newArr;
         });
     };
@@ -60,25 +63,14 @@ function CreateTodo({text , category, id}:ITodo){
                 <p>{text}</p>
             </div> 
             <Flex>
-            {/* 
-            3개 버튼 다보이며, = 방법1
-            <Btn onClick={()=>onClick('TO_DO')}>To Do</Btn>
-            <Btn onClick={()=>onClick('DOING')}>Doing</Btn>
-            <Btn onClick={()=>onClick('DONE')}>Done</Btn> */}
-            {/* 해당상태에 버튼은 안보임  = 방법2*/}
-            {category !== "TO_DO" && <Btn name="TO_DO" onClick={onClick}>To Do</Btn>}
-            {category !== "DOING" && <Btn name="DOING" onClick={onClick}>Doing</Btn>}
-            {category !== "DONE" && <Btn name="DONE" onClick={onClick}>Done</Btn>}
+                {/* category !== categorys.TO_DO 다르면 버튼이 보임 TODO상태인데 TODO버튼이 보이면 안됨*/}
+            {category !== categorys.TO_DO && <Btn name={categorys.TO_DO} onClick={onClick}>To Do</Btn>}
+            {category !== categorys.DOING && <Btn name={categorys.DOING} onClick={onClick}>Doing</Btn>}
+            {category !== categorys.DONE && <Btn name={categorys.DONE} onClick={onClick}>Done</Btn>}
+            <Btn name={categorys.REMOVE} onClick={onClick}>remove</Btn>
             </Flex>
         </ToDoli>
     );
 }
 
 export default CreateTodo;
-
-//2번의 mango를 바꾸고 싶을때! 감으로 교체
-// const food = ['pizzs','mango','gim','remon'];
-// const first = ['pizzs'];
-// const last = ['gim','remon'];
-// const lastconpo = [first + '감' + last] ['pizzs','감','gim','remon']
-// 이런느낌으로 추가

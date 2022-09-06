@@ -41,13 +41,12 @@ function ToDoList(){
    const [category, setCategory] = useRecoilState(categoryState);
    const onInput = (e:React.FormEvent<HTMLSelectElement>) =>{
     const {value} = e.currentTarget;
-    setCategory(value);
+    setCategory(value as any);
    };
-   console.log(category);
     return <Container><div>
         <Title>To Dos</Title>
         <CreateTodos/>
-          <select value={category} onInput={onInput}>
+          <select value={category} onInput={onInput} style={{width:'100%', padding:10, margin:'10px 0'}}>
             <option value="TO_DO">TO_DO</option>
             <option value="DOING">DOING</option>
             <option value="DONE">DONE</option>
