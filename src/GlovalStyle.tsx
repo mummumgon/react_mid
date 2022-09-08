@@ -37,8 +37,8 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-size:20px;
-	background-color: #333;
-	color:#eee;
+	background-color: ${props=>props.theme.bgColor};
+	color:${props=>props.theme.textColor};
 	*{
 		font-family: 'yg-jalnan','Sans-serif','serif';
 	}
@@ -59,7 +59,11 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-a{text-decoration:none}
+a{
+	text-decoration:none;
+	color: ${props=>props.theme.textColor};
+
+}
 `;
 
 
