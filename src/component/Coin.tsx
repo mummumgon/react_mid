@@ -7,6 +7,7 @@ import Price from "./Price";
 const Container = styled.section`
     max-width: 500px;
     margin: 50px auto;
+    padding: 0 20px;
 `
 const Title = styled.h1`
     font-size:32px;
@@ -14,7 +15,7 @@ const Title = styled.h1`
     text-align: center;
     margin-bottom: 50px;
 `;
-const BText = styled.span`
+const BText = styled.p`
     font-size:32px;
     color:${props=>props.theme.textColor};
     text-align: center;
@@ -22,7 +23,7 @@ const BText = styled.span`
 `;
 const InfoList = styled.ul`
     display:flex;
-    align-items: center;
+    align-items: flex-start;
     border-radius: 10px;
     background-color: ${props=>props.theme.textColor};
     color: ${props=>props.theme.bgColor};
@@ -32,11 +33,15 @@ const Item = styled.li`
     flex: 1;
     span{
         color: ${props=>props.theme.bgColor};
+        text-transform: uppercase;
+        font-size: 14px;
+        
     }
     p{
         font-size:22px;
         color: #17c26d;
         padding-top: 10px;
+        word-break:break-word;
     }
 `;
 const TextBox = styled.div`
@@ -133,17 +138,16 @@ function Coin(){
     return <div>
         <Container>
             <Title>{state?.name ? state.name : loding ? <BText>LOADING..</BText> :coinData?.name }</Title>
-            {loding ? <BText>LOAING,,,</BText> :<div> 
+            {loding ? <BText>LOAING...</BText> :<div> 
                 <InfoList>
-                    <Item><span>RANK:</span><p>{coinData?.rank}</p></Item>
-                    <Item><span>symbol:</span><p>{coinData?.symbol}</p></Item>
-                    <Item><span>type:</span><p>{coinData?.type}</p></Item>
+                    <Item><span>RANK :</span><p>{coinData?.rank}</p></Item>
+                    <Item><span>symbol :</span><p>{coinData?.symbol}</p></Item>
+                    <Item><span>type :</span><p>{coinData?.type}</p></Item>
                 </InfoList>
                 <TextBox>{coinData?.description}</TextBox>
                 <InfoList>
-                    <Item><span>total_supply</span><p>{priceData?.total_supply}</p></Item>
-                    <Item><span></span><p></p></Item>
-                    <Item><span>first_data_at</span><p>{priceData?.first_data_at}</p></Item>
+                    <Item><span>total_supply :</span><p>{priceData?.total_supply}</p></Item>
+                    <Item><span>max_supply :</span><p>{priceData?.max_supply}</p></Item>
                 </InfoList>
                 <Tabwrap>
                     <Tab Active={chartMatch!==null}><Link to={chartLocation}>CHART</Link></Tab>

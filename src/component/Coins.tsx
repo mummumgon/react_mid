@@ -6,6 +6,7 @@ import { coinFetch } from "../api";
 const Container = styled.section`
     max-width: 500px;
     margin: 50px auto;
+    padding: 0 20px;
 `
 const Title = styled.h1`
     font-size:32px;
@@ -13,7 +14,7 @@ const Title = styled.h1`
     text-align: center;
     margin-bottom: 50px;
 `;
-const BText = styled.span`
+const BText = styled.p`
     font-size:32px;
     color:${props=>props.theme.textColor};
     text-align: center;
@@ -63,9 +64,9 @@ function Coins(){
     return <div>
         <Container>
             <Title>Coin Infomation</Title>
-            {isLoading ? <BText>LODING...'</BText> : 
+            {isLoading ? <BText>LODING...</BText> : 
             <ListUl>
-                {data?.slice(0,10)?.map((coin)=> <li key={coin.id}><Link to={`/react_mid/${coin.id}`} state={{name:coin.name}}><img src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`} alt={`${coin.id} logo`} /> {coin.name}<span>&gt;</span></Link></li>)}
+                {data?.slice(0,20)?.map((coin)=> <li key={coin.id}><Link to={`/react_mid/${coin.id}`} state={{name:coin.name}}><img src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`} alt={`${coin.id} logo`} /> {coin.name}<span>&gt;</span></Link></li>)}
             </ListUl>
             }
         </Container>
