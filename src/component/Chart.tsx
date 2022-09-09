@@ -18,11 +18,11 @@ interface chartState{
 function Chart(){
   const isDark = useRecoilValue(darkModeAtom);
     const {coinId} = useParams();
-    const {isLoading , data} = useQuery<chartState[]>(['chart',coinId] , ()=> chartData(`${coinId}`));
+    const {isLoading, data} = useQuery<chartState[]>(['chart',coinId] , ()=> chartData(`${coinId}`));
+    console.log('data',data?.length);
     return <div>
         {isLoading ? "LODING..."
-        :
-        <div>
+        : data?.length === undefined ? "데이타 없음" : <div>
             {/* //  {x: new Date(time_close),y: [open, high, low, close]}, */}
            <ApexChart type="candlestick" series={[
             {
