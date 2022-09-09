@@ -143,7 +143,7 @@ function Coin(){
                 <InfoList>
                     <Item><span>total_supply</span><p>{priceData?.total_supply}</p></Item>
                     <Item><span></span><p></p></Item>
-                    {/* <Item><span>price</span><p>{priceData?.quotes.USD.price.toFixed(3)}</p></Item> */}
+                    <Item><span>price</span><p>{priceData?.quotes.USD.price.toFixed(3)}</p></Item>
                 </InfoList>
                 <Tabwrap>
                     <Tab Active={chartMatch!==null}><Link to={chartLocation}>CHART</Link></Tab>
