@@ -19,7 +19,7 @@ function Header(){
     const location = useLocation();
     const onClick = () => setIsdark((mode)=> !mode);
     return <PHeader>
-        {location.pathname === '/' ? <span></span> : <Link to="/"> &lt; BACK</Link>}
+        {location.pathname === "/react_mid" || location.pathname === "/react_mid/" ? <span></span> : <Link to="/react_mid"> &lt; BACK</Link>}
         <button onClick={onClick}>{isDark ? 'Nomal Mode' : 'Dark mode'}</button>
     </PHeader>;
 }

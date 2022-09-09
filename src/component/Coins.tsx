@@ -65,7 +65,7 @@ function Coins(){
             <Title>Coin Infomation</Title>
             {isLoading ? <BText>LODING...'</BText> : 
             <ListUl>
-                {data?.slice(0,10)?.map((coin)=> <li key={coin.id}><Link to={`/${coin.id}`} state={{name:coin.name}}><img src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`} alt={`${coin.id} logo`} /> {coin.name}<span>&gt;</span></Link></li>)}
+                {data?.slice(0,10)?.map((coin)=> <li key={coin.id}><Link to={`/react_mid/${coin.id}`} state={{name:coin.name}}><img src={`https://cryptocurrencyliveprices.com/img/${coin.id}.png`} alt={`${coin.id} logo`} /> {coin.name}<span>&gt;</span></Link></li>)}
             </ListUl>
             }
         </Container>

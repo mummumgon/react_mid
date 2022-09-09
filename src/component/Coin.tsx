@@ -115,7 +115,7 @@ interface IPriceState{
             ath_price:number;
             ath_date:string;
             percent_from_price_ath:number;
-        }
+        };
     };
 }
 
@@ -123,8 +123,8 @@ function Coin(){
     const {coinId} = useParams();
     const location = useLocation();
     const state = location.state as {name:string};
-    const chartLocation = `/${coinId}/chart`;
-    const priceLocation = `/${coinId}/price`;
+    const chartLocation = `/react_mid/${coinId}/chart`;
+    const priceLocation = `/react_mid/${coinId}/price`;
     const chartMatch = useMatch(chartLocation);
     const priceMatch = useMatch(priceLocation);
     const {isLoading:coinLoding , data:coinData} = useQuery<ICoinState>(['coin',coinId] , () => coinDetailInfo(`${coinId}`));
@@ -143,7 +143,7 @@ function Coin(){
                 <InfoList>
                     <Item><span>total_supply</span><p>{priceData?.total_supply}</p></Item>
                     <Item><span></span><p></p></Item>
-                    <Item><span>price</span><p>{priceData === undefined ?'가격없음' : priceData.quotes.USD.price.toFixed(3)}</p></Item>
+                    <Item><span>first_data_at</span><p>{priceData?.first_data_at}</p></Item>
                 </InfoList>
                 <Tabwrap>
                     <Tab Active={chartMatch!==null}><Link to={chartLocation}>CHART</Link></Tab>

@@ -6,8 +6,8 @@ function Router(){
     return <BrowserRouter>
     <Header/>
         <Routes>
-            <Route path='/' element={<Coins/>}/>
-            <Route path='/:coinId/*' element={<Coin/>}/>
+            <Route path='/react_mid' element={<Coins/>}/>
+            <Route path='/react_mid/:coinId/*' element={<Coin/>}/>
         </Routes>
     </BrowserRouter>
 }

@@ -19,7 +19,6 @@ function Chart(){
   const isDark = useRecoilValue(darkModeAtom);
     const {coinId} = useParams();
     const {isLoading, data} = useQuery<chartState[]>(['chart',coinId] , ()=> chartData(`${coinId}`));
-    console.log('data',data?.length);
     return <div>
         {isLoading ? "LODING..."
         : data?.length === undefined ? "데이타 없음" : <div>
