@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { coinFetch } from "../api";
 
@@ -14,7 +13,7 @@ const Title = styled.h1`
     text-align: center;
     margin-bottom: 50px;
 `;
-const BText = styled.h1`
+const BText = styled.span`
     font-size:32px;
     color:${props=>props.theme.textColor};
     text-align: center;

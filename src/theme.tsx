@@ -6,8 +6,8 @@ export const darktheme:DefaultTheme = {
     activeColor:"#10862d",
 };
  
-// export const lightTheme:DefaultTheme ={
-//     bgColor: "#eee",
-// 	textColor: "#333",
-//     activeColor:"#aa2276",
-// }
+export const lightTheme:DefaultTheme ={
+    bgColor: "#eee",
+	textColor: "#333",
+    activeColor:"#aa2276",
+}

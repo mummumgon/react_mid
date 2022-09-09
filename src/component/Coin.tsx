@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useLocation, useParams ,Link, Routes, Route, useMatch } from "react-router-dom";
 import styled from "styled-components";
@@ -15,7 +14,7 @@ const Title = styled.h1`
     text-align: center;
     margin-bottom: 50px;
 `;
-const BText = styled.h1`
+const BText = styled.span`
     font-size:32px;
     color:${props=>props.theme.textColor};
     text-align: center;
@@ -25,13 +24,14 @@ const InfoList = styled.ul`
     display:flex;
     align-items: center;
     border-radius: 10px;
-    background-color: #555;
+    background-color: ${props=>props.theme.textColor};
+    color: ${props=>props.theme.bgColor};
     padding: 20px;
 `;
 const Item = styled.li`
     flex: 1;
     span{
-        color: #f4f4f4;
+        color: ${props=>props.theme.bgColor};
     }
     p{
         font-size:22px;
@@ -54,11 +54,13 @@ const Tabwrap = styled(InfoList)`
 const Tab = styled(Item)<{Active:boolean}>`
     border-radius: 10px;
     margin:40px 5px;
-    background-color: #f4f4f4;
+    overflow: hidden;
+    text-align: center;
     a{
         display: block;
         padding: 16px;
         font-weight:bold;
+        background-color: ${props =>props.theme.textColor};
         color: ${props => props.Active ? props.theme.activeColor : props.theme.bgColor};
     }
 `;
@@ -141,7 +143,7 @@ function Coin(){
                 <InfoList>
                     <Item><span>total_supply</span><p>{priceData?.total_supply}</p></Item>
                     <Item><span></span><p></p></Item>
-                    <Item><span>price</span><p>{priceData?.quotes.USD.price.toFixed(3)}</p></Item>
+                    {/* <Item><span>price</span><p>{priceData?.quotes.USD.price.toFixed(3)}</p></Item> */}
                 </InfoList>
                 <Tabwrap>
                     <Tab Active={chartMatch!==null}><Link to={chartLocation}>CHART</Link></Tab>
