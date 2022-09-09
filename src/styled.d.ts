@@ -4,8 +4,10 @@ import 'styled-components';
 // and extend them!
 declare module 'styled-components' {
   export interface DefaultTheme {
-    bgColor: string,
-	textColor: string,
-    activeColor:string,
+    coinColor: {
+      bgColor: string;
+      textColor: string;
+      activeColor:string;
+    };
   }
 }
