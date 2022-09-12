@@ -1,38 +1,31 @@
 import GlovalStyle from "./GlovalStyle";
 import styled from "styled-components";
-import {Link} from 'react-router-dom';
+import {Link } from 'react-router-dom';
+import { useState } from "react";
 
-const Container = styled.section`
-  max-width: 500px;
-  width: 100%;
-  padding: 20px;
-  margin: 50px auto;
-`;
-
-const ListUl = styled.ul`
-    li{
-        a{
-            display: block;
-            font-size:20px;
-        }
-    }
-`;
 function Main() {
+  const [view , setView] = useState(false);
+  const onClick = () =>{setView((toggle) => !toggle)}
   return <div>
       <GlovalStyle/>
-      <Container>
-        <ListUl>
+      <div className='container'>
+            <h1 className='title dot'>= Home =</h1>
+        <ul className="list_type">
+          <li><Link to='/coins'>Coin<em>&gt;</em></Link></li>
           <li>
-            <Link to="/coins">Coin</Link>
+            <button onClick={onClick}>Join & ToDoList<em>&gt;</em></button>
+            { !view ? '' : 
+            <div className="depth2">
+              <Link to="/join"><em>└ Sign Up</em><em>&gt;</em></Link>
+              <Link to="/todo"><em>└ ToDoList</em><em>&gt;</em></Link>
+            </div>
+            }
           </li>
-          <li>
-            <Link to="/todos">ToDO List</Link>
-          </li>
-          <li>
-            <Link to="/dragdrop">Drag and Drop</Link>
-          </li>
-        </ListUl>
-      </Container>
+          {/* <li><Link to='/todos'>Todo<em>&gt;</em></Link></li> */}
+          {/* <li><Link to='/todos'>Drag N Drop<em>&gt;</em></Link></li> */}
+
+        </ul>
+    </div>
     </div>
 }
 

@@ -1,12 +1,16 @@
 import GlovalStyle from "./GlovalStyle";
-import styled from "styled-components";
-import Home from "./Home";
+import { ThemeProvider } from "styled-components";
+import { darkTheme , lightTheme } from "./theme";
 import MainRouter from "./MainRouter";
-
+import {useRecoilValue} from 'recoil';
+import { darkMode } from './atom';
 function App() {
+  const isDark = useRecoilValue(darkMode);
   return <div>
-      <GlovalStyle/>
-      <MainRouter/>
+      <ThemeProvider theme={ isDark ? lightTheme : darkTheme}>
+        <GlovalStyle/>
+        <MainRouter/>
+      </ThemeProvider>
     </div>
 }
 

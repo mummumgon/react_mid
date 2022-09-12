@@ -6,6 +6,8 @@ const Container = styled.section`
   margin: 50px auto;
 `;
 function DragNDropDetail(){
-    return <Container>드래그 자세히 페이지 임되</Container>
+    return <div className="container">
+    drag
+</div>
 }
 export default DragNDropDetail;

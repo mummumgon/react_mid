@@ -1,17 +1,17 @@
 import { DefaultTheme } from 'styled-components';
 
-export const darkMode: DefaultTheme = {
+export const darkTheme: DefaultTheme = {
   coinColor: {
     bgColor: '#333',
     textColor: '#eee',
-    activeColor:'red',
+    activeColor:'#ed1313',
   },
 };
 
-export const lightMode: DefaultTheme = {
+export const lightTheme: DefaultTheme = {
   coinColor: {
     bgColor: '#eee',
     textColor: '#333',
-    activeColor:'green',
+    activeColor:'#24cb24',
   },
 };

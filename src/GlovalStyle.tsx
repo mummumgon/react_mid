@@ -43,7 +43,7 @@ body {
 		font-family: 'yg-jalnan','Sans-serif','serif';
 	}
 }
-ol, ul {
+ol, ul , li {
 	list-style: none;
 }
 blockquote, q {
@@ -64,6 +64,143 @@ a{
 	color: ${props=>props.theme.coinColor.textColor};
 
 }
+input[type="text"],input[type="password"] , input[type="email"]{
+	width: 100%;
+	padding: 6px 10px;
+	border: 3px solid transparent;
+}
+input.success{
+	border-color: #5dda5d;
+} 
+input.error{
+	border-color: red;
+} 
+.c_label{
+	display: inline-block;
+	min-width: 80px;
+}
+.r_label{
+	display: inline-block;
+	min-width: 80px;
+}
+/* 공통 */
+.header{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	z-index: 100;
+	padding: 0 20px;
+	background-color: #999;
+	nav{
+		height: 100%;
+		width: 100%;
+	button{
+		display: block;
+		padding: 10px 10px 8px; 
+		border-radius:5px;
+		line-height: 1;
+		color:${props=>props.theme.coinColor.bgColor};
+		background-color:${props=>props.theme.coinColor.textColor};
+	}
+}
+}
+.container{
+	max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  margin: 50px auto;
+}
+.title{
+	font-size:32px;
+  text-align: center;
+  padding: 25px 0;
+  margin: 25px 0;
+}.dot{
+	border-top:2px dotted #eee;
+border-bottom:2px dotted #eee;
+}
+
+.dest{
+	display: block;
+	margin: 30px 0;
+	text-align: center;
+	font-size: 24px;
+	color: ${props => props.theme.coinColor.textColor};
+}
+
+/* 리스트타입 */
+.list_type{
+	li{
+		margin: 20px 0;
+      overflow: hidden;
+	  > a , > button{
+			background-color: ${props => props.theme.coinColor.textColor};
+			color: ${props => props.theme.coinColor.bgColor};
+			border-radius: 10px;
+		}
+	  a , button{
+		  display: flex;
+		  align-items: center;
+		  justify-content: space-between;
+		  width: 100%;
+		  padding: 10px 20px;
+		  font-size:20px;
+		  line-height: 30px;
+			border: 0;
+			cursor: pointer;
+			:hover{
+				color: ${props => props.theme.coinColor.activeColor};
+			}
+			:hover em:last-child{
+					animation: tranLR 1 .3s both;
+				}
+			}
+			em{ transition: translateX 0.3s;}
+			img{
+				height: 30px;
+			}
+        }
+	
+		.depth2{
+			 > a, >button{
+				background-color: transparent;
+				color: ${props => props.theme.coinColor.textColor};
+				border-bottom: 1px solid ${props => props.theme.coinColor.textColor};
+				padding: 10px 20px;
+			}
+		}
+    }
+	/* 폼리스트타입 */
+	.form_type{
+		li{
+			margin: 20px 0;
+			.label{
+				display: block;
+				padding: 10px 0;
+				color: #47e2fb;
+			}.pb20{
+				padding-bottom: 20px;
+			}
+			.c_label{
+				margin: 10px 0;
+			}
+		}
+	}
+
+	/* 정렬 */
+	.flex_btw{display:flex; 
+		align-items:center; 
+		justify-content:space-between
+	}
+
+	/* animation */
+	@keyframes tranLR {
+	0%{transform:translateX(0)}
+	50%{transform:translateX(10px)}
+	100%{transform:translateX(0px)}
+	}
 `;
 
 
