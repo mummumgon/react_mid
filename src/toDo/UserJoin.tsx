@@ -13,10 +13,8 @@
 // 활성화 후에 complete페이지로 넘기기,(거기서 홈으로 이동하기)
 import { useRecoilState } from 'recoil'
 import { useForm } from "react-hook-form";
-import { Link, Navigate } from "react-router-dom";
 import styled from "styled-components";
 import {joinState} from "../atom";
-import { useState } from 'react';
 const Btn = styled.button`
     width: 100%;
     padding: 20px;
@@ -46,14 +44,13 @@ function UserJoin(){
             email:'@',
         }
     });
-    const [joinData, setJoinData] = useRecoilState<IJoinFrom[]>(joinState);
+    const [joinData, setJoinData] = useRecoilState(joinState);
     const onSubmit = (data:any) =>{
         if(data.userPass !== data.userPass1){
             setError('userPass1',{message:'위에 비밀번호가 다릅니다.'});
         };
         setJoinData(data);
     }
-    console.log(typeof joinData)
     return <div>
         <div className="container">
             <h1 className="title">회원가입</h1>

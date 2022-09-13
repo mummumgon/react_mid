@@ -11,13 +11,13 @@ import JoinComlpete from './toDo/Complete'
 function MainRouter() {
   return ( 
   <Routes>
-    <Route path="/reactmid" element={<Home/>}/>
+    <Route path="/react_mid" element={<Home/>}/>
     {/* COIN */}
     <Route path="/coins" element={<Coins/>}/>
     <Route path="/coins/:coinId/*" element={<CoinDetail/>}/>
     {/* TODO */}
-    <Route path="/todos" element={<ToDoList/>}/>
-    <Route path="/todos/detail" element={<ToDoListDetail/>}/>
+    <Route path="/todo" element={<ToDoList/>}/>
+    <Route path="/todo/detail" element={<ToDoListDetail/>}/>
     {/* Join */}
     <Route path="/join" element={<UserJoin/>}/>
     <Route path="/join/complete" element={<JoinComlpete/>}/>

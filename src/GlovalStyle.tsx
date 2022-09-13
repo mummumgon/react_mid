@@ -68,6 +68,7 @@ input[type="text"],input[type="password"] , input[type="email"]{
 	width: 100%;
 	padding: 6px 10px;
 	border: 3px solid transparent;
+	margin: 5px 0;
 }
 input.success{
 	border-color: #5dda5d;
@@ -82,6 +83,11 @@ input.error{
 .r_label{
 	display: inline-block;
 	min-width: 80px;
+}
+select{
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
 }
 /* 공통 */
 .header{
