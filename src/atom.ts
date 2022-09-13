@@ -29,9 +29,7 @@ export const todoSelector = selector({
   get:({get})=>{
     const todo = get(toDoState);
     const category = get(categoryState);
-    if(category === 'TODO') return todo.filter((toDo) => toDo.category === 'TODO');
-    if(category === 'DOING') return todo.filter((toDo) => toDo.category === 'DOING');
-    if(category === 'DONE') return todo.filter((toDo) => toDo.category === 'DONE');
+    return todo.filter((toDo) => toDo.category === category);
   }
 });
 
