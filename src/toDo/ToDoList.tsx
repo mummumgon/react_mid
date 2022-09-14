@@ -10,6 +10,8 @@ import styled from "styled-components";
 import { Categorys, categoryState, todoSelector } from "../atom"
 import ToDo from "./ToDo";
 import ToDoCreat from "./ToDoCreat";
+import ToDoHeader from "./ToDoHeader";
+
 function ToDoList(){
   const selecToDo = useRecoilValue(todoSelector);
   console.log(selecToDo);
@@ -18,7 +20,8 @@ function ToDoList(){
     const {value} = e.currentTarget;
     setCate(value as any);
   }
-  return <div className='container'>
+  return <div><ToDoHeader/>
+    <div className='container'>
     <ToDoCreat/>
     <select value={cate} onInput={onInput}>
       <option value={Categorys.TODO}>{Categorys.TODO}</option>
@@ -28,6 +31,7 @@ function ToDoList(){
     <ul>
       {selecToDo?.map((todo)=><ToDo {...todo}/>)}
     </ul>
+  </div>
   </div>
 }
 

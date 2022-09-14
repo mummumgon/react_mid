@@ -127,7 +127,7 @@ select{
 	border-top:2px dotted #eee;
 border-bottom:2px dotted #eee;
 }
-
+.hobby span:last-child em{display:none}
 .dest{
 	display: block;
 	margin: 30px 0;

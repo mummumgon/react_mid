@@ -13,6 +13,7 @@
     "apexcharts": "^3.35.5",
     "gh-pages": "^4.0.0",
     "jquery": "^3.6.1",
+    "little-state-machine": "^4.6.0",
     "module-name": "^0.0.1-security",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",

@@ -4,13 +4,13 @@ import { Categorys, IToDo, toDoState } from "../atom";
 const LI = styled.li`
     padding: 20px;
     word-break: break-all;
-    border: 2px solid #eee;
+    border: 2px solid ${props=>props.theme.coinColor.textColor};
     border-radius: 10px;
     margin: 30px 0;
     :first-child{margin-top:0}
     p{padding-bottom:10px; margin-bottom:10px}
     .cate{
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid ${props=>props.theme.coinColor.textColor};
         font-size:14px;
         padding: 0 0 10px;
         color:orange

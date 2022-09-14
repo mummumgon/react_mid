@@ -15,6 +15,8 @@ import { useRecoilState } from 'recoil'
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import {joinState} from "../atom";
+import ToDoHeader from "./ToDoHeader";
+import { useNavigate } from 'react-router-dom';
 const Btn = styled.button`
     width: 100%;
     padding: 20px;
@@ -26,6 +28,9 @@ const Error = styled.p`
     font-size: 12px;
     font-weight: normal;
     margin-top: 10px;
+`;
+const Hint = styled(Error)`
+    color:${props=>props.theme.coinColor.textColor};
 `;
 
 interface IJoinFrom{
@@ -39,19 +44,20 @@ interface IJoinFrom{
     radio:string;
 }
 function UserJoin(){
-    const { register , handleSubmit , formState : {errors}, setError} = useForm<IJoinFrom>({
-        defaultValues:{
-            email:'@',
-        }
-    });
+    const navigate = useNavigate();
+    const { register , handleSubmit , formState : {errors}, setError} = useForm<IJoinFrom>();
     const [joinData, setJoinData] = useRecoilState(joinState);
     const onSubmit = (data:any) =>{
         if(data.userPass !== data.userPass1){
             setError('userPass1',{message:'위에 비밀번호가 다릅니다.'});
         };
         setJoinData(data);
+        // window.open(`/join/complete?id=${data.userId}`);
+        navigate("/join/complete",  { state: { user:data.userId, hobby:data.hobby }});
+        // navigate(`complete, { state: { value: 1234 } });
     }
     return <div>
+        <ToDoHeader/>
         <div className="container">
             <h1 className="title">회원가입</h1>
         <div className="form_type">
@@ -66,17 +72,17 @@ function UserJoin(){
                         },
                         validate: (value) => !value.includes(`noco`)
                         })} placeholder="ID를 입력해주세요" />
-                        {errors.userId ? <Error>{errors.userId.message}</Error> : ''}
+                        {errors.userId ? <Error>{errors.userId.message}</Error> : <Hint>최소 5글자 이상 적어주세요</Hint>}
                     </li>
                     <li>
                         <label className="label pb20">Password</label>
                         <input type="text" {...register("userPass",{required:'Password를 입력하지 않으셨습니다.', 
                         pattern:{
                             value:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$/,
-                            message:'최소 8자, 최소 하나의 문자, 하나의 숫자 및 하나의 특수 문자(@!%*#?&) 조합해 주세요'
+                            message:'조건에 맞지 않습니다. 확인 후 다시 작성해'
                             }
                             })} placeholder="Password 입력해주세요" />
-                        {errors.userPass ? <Error>{errors.userPass.message}</Error> : ''}
+                        {errors.userPass ? <Error>{errors.userPass.message}</Error> : <Hint>최소8자, 최소하나의 문자, 하나의 숫자 및 하나의 특수 문자(@!%*#?&) 조합해 주세요</Hint>}
                     </li>
                     <li>
                         <label className="label pb20">Password 확인</label>
