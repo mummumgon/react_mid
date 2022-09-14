@@ -41,16 +41,15 @@ interface IJoinFrom{
 }
 function UserJoin(){
     const navigate = useNavigate();
-    const { register , handleSubmit , formState : {errors}, setError,watch} = useForm<IJoinFrom>();
+    const { register , handleSubmit , formState : {errors}, setError} = useForm<IJoinFrom>();
     const [joinData, setJoinData] = useRecoilState(joinState);
     const onSubmit = (data:any) =>{
         if(data.userPass !== data.userPass1){
             setError('userPass1',{message:'위에 비밀번호가 다릅니다.'});
         };
         setJoinData(data);
-        navigate("/react_mid/join/complete",  { state: { user:data.userId, hobby:data.hobby }});
+        navigate("/join/complete",  { state: { user:data.userId, hobby:data.hobby }});
     };
-    console.log('joinData',joinData.userId);
     return <div> 
         <ToDoHeader/>
         <div className="container">

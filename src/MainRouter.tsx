@@ -12,13 +12,13 @@ function MainRouter() {
   <Routes>
     <Route path="/react_mid" element={<Home/>}/>
     {/* COIN */}
-    <Route path="/react_mid/coins" element={<Coins/>}/>
-    <Route path="/react_mid/coins/:coinId/*" element={<CoinDetail/>}/>
+    <Route path="/coins" element={<Coins/>}/>
+    <Route path="/coins/:coinId/*" element={<CoinDetail/>}/>
     {/* TODO */}
-    <Route path="/react_mid/todo" element={<ToDoList/>}/>
+    <Route path="/todo" element={<ToDoList/>}/>
     {/* Join */}
-    <Route path="/react_mid/join" element={<UserJoin/>}/>
-    <Route path="/react_mid/join/complete" element={<JoinComlpete/>}/>
+    <Route path="/join" element={<UserJoin/>}/>
+    <Route path="/join/complete" element={<JoinComlpete/>}/>
     {/* DragNDrop */}
     <Route path="/todos" element={<DragNDrop/>}/>
     <Route path="/ddrop/detail" element={<DragNDropDetail/>}/>

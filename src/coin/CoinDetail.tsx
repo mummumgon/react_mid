@@ -89,8 +89,8 @@ function CoinDetail(){
             <li><span>price</span><p>{(priceInfo?.quotes.USD.price.toFixed(3))}</p></li>
           </ListUl>
           <TabWrap className="flex_btw">
-            <Link to={`/react_mid/coins/${coinId}/chart`}>Chart</Link>
-            <Link to={`/react_mid/coins/${coinId}/price`}>Price</Link>
+            <Link to={`/coins/${coinId}/chart`}>Chart</Link>
+            <Link to={`/coins/${coinId}/price`}>Price</Link>
           </TabWrap>
         <Routes>
           <Route path="chart" element={<Chart/>}/>

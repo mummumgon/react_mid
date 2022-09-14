@@ -7,7 +7,6 @@ function CoinHeader(){
     const location = useLocation();
     return <header className="header">
         <nav className="flex_btw">
-            {/* <Link to="/coins">{ location.pathname === '/coins' ||  location.pathname === '/coins/' ? '< 홈' : `< 뒤로가기`}</Link> */}
             <Link to="/react_mid">&lt; 홈</Link>
             <button onClick={onClick}>{dark ? '일반모드':'다크모드'}</button>
         </nav>

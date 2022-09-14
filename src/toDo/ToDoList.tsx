@@ -21,7 +21,6 @@ const SelectBox = styled.div`
 
 function ToDoList(){
   const selecToDo = useRecoilValue(todoSelector);
-  console.log('selecToDo',selecToDo);
   const [cate , setCate] = useRecoilState(categoryState);
   const onInput = (e:React.FormEvent<HTMLSelectElement>) =>{
     const {value} = e.currentTarget;
