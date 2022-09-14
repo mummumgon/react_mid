@@ -23,7 +23,8 @@ function Chart(){
             <Helmet>
                 <title>${coinId}/chart</title>
             </Helmet>
-        {isLoading ? <p className="flex_btw">LOADING...</p> : 
+        {isLoading ? <p className="flex_btw">LOADING...</p>   
+        : data?.length === undefined ? <p style={{margin:'20px 0'}}>데이타 없음</p> :
         <div>
             <ApexChart type='candlestick' 
             series={[
