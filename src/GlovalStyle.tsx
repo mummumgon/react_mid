@@ -27,6 +27,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	line-height: 1.3;
 	
 }
 /* HTML5 display-role reset for older browsers */
@@ -35,7 +36,6 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
 	font-size:20px;
 	background-color: ${props=>props.theme.coinColor.bgColor};
 	color:${props=>props.theme.coinColor.textColor};
@@ -85,7 +85,7 @@ input.error{
 	min-width: 80px;
 }
 select{
-	width: 100%;
+	width: 150px;
 	padding: 10px;
 	margin: 10px 0;
 }
@@ -185,9 +185,9 @@ border-bottom:2px dotted #eee;
 			.label{
 				display: block;
 				padding: 10px 0;
-				color: #47e2fb;
+				color: #377af7;
 			}.pb20{
-				padding-bottom: 20px;
+				padding-bottom: 5px;
 			}
 			.c_label{
 				margin: 10px 0;

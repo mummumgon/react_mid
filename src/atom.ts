@@ -1,6 +1,10 @@
-import { atom , selector, useRecoilValueLoadable_TRANSITION_SUPPORT_UNSTABLE } from "recoil";
+import { atom , selector } from "recoil";
 import { recoilPersist } from 'recoil-persist'
-const { persistAtom } = recoilPersist();
+const { persistAtom } = recoilPersist({
+  key: 'recoil-persist', 
+  storage: localStorage,
+})
+
 export enum Categorys{
   'TODO'='TODO',
   'DOING'='DOING',
@@ -11,8 +15,8 @@ export interface IToDo{
   id:number,
   text:string,
   category:Categorys,
+  category1?:string
 }
-
 //todo
 export const toDoState = atom<IToDo[]>({
   key:'toDos',
@@ -36,7 +40,8 @@ export const todoSelector = selector({
 //join
 export const joinState = atom({
   key: 'joinkey',
-  default: []
+  default: [],
+  effects_UNSTABLE: [persistAtom],
 });
 //다크모드
 export const darkMode = atom({

@@ -1,6 +1,7 @@
 // 작업일 : 2022.09.09 ~ 2022.09.10
 // 작업내용: Coin Api값 표출
-// - 다크모드 - 차트 - 탭기능 - Api연결
+// Library : react, apexcharts,styled-conponent
+// 기능 적용 : - 다크모드 - 차트 - 탭기능 - Api연결
 import {Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { coinApi } from '../api';

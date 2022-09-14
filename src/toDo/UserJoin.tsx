@@ -1,16 +1,12 @@
 // 작업일 : 2022.09.12 ~ 2022.09.12
 // 작업내용: 회원가입폼 만들기
+// Library : Recoil,react-hook-form,styled-component,recoil-persist
+// 기능적용: 
 // 비밀번호, 이메일 유효성 검사 추가 및 상황에 맞는 에러메세지 추가
 // 체크박스 및 라디오 박스 구현
-// localstarage에 가입하기 클릭시 값 업로드
-// 'noco'로 가입시 가입안되게 에러메세지 작업
+// localstotage에 가입하기 클릭시 값 업로드
+// localstotage저장된 가입한 아이디 비교 후 가입 안되게 에러메세지 작업
 
-//============ 해야함 ============== 
-// joinData를 배열에 추가해서 계속올리기
-// userid 옆에 문구의 값 가지고 오기
-// 값비교하기
-// 가입하기 버튼에 필수값 다 입력시 활성화하기
-// 활성화 후에 complete페이지로 넘기기,(거기서 홈으로 이동하기)
 import { useRecoilState } from 'recoil'
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
@@ -19,9 +15,9 @@ import ToDoHeader from "./ToDoHeader";
 import { useNavigate } from 'react-router-dom';
 const Btn = styled.button`
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     margin: 40px 0;
-    font-size: 22px;
+    font-size: 18px;
 `;
 const Error = styled.p`
     color: #ff3d1b;
@@ -45,18 +41,17 @@ interface IJoinFrom{
 }
 function UserJoin(){
     const navigate = useNavigate();
-    const { register , handleSubmit , formState : {errors}, setError} = useForm<IJoinFrom>();
+    const { register , handleSubmit , formState : {errors}, setError,watch} = useForm<IJoinFrom>();
     const [joinData, setJoinData] = useRecoilState(joinState);
     const onSubmit = (data:any) =>{
         if(data.userPass !== data.userPass1){
             setError('userPass1',{message:'위에 비밀번호가 다릅니다.'});
         };
         setJoinData(data);
-        // window.open(`/join/complete?id=${data.userId}`);
         navigate("/join/complete",  { state: { user:data.userId, hobby:data.hobby }});
-        // navigate(`complete, { state: { value: 1234 } });
-    }
-    return <div>
+    };
+    console.log('joinData',joinData.userId);
+    return <div> 
         <ToDoHeader/>
         <div className="container">
             <h1 className="title">회원가입</h1>
@@ -70,7 +65,10 @@ function UserJoin(){
                             value:5,
                             message:'최소 5글자 이상 적어주세요',
                         },
-                        validate: (value) => !value.includes(`noco`)
+                        validate: {
+                            noNico: (value) =>
+                            value === joinData.userId ? '중복아이디 입니다.' : true,
+                          },
                         })} placeholder="ID를 입력해주세요" />
                         {errors.userId ? <Error>{errors.userId.message}</Error> : <Hint>최소 5글자 이상 적어주세요</Hint>}
                     </li>

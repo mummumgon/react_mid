@@ -23,24 +23,31 @@ const LI = styled.li`
         }
     }
 `;
-function ToDo({text,id,category}:IToDo){
+function ToDo({text,id,category,category1}:IToDo){
+    const REMOVE = 'REMOVE';
     const setToDo = useSetRecoilState(toDoState);
     const onClick = (e:React.MouseEvent<HTMLButtonElement>) =>{
         const {name} = e.currentTarget;
         setToDo((oldToDo)=>{
           const idx = oldToDo.findIndex((todo)=> todo.id === id);
-          const newToDo = {id,text,category:name as Categorys};
-          return [...oldToDo.slice(0,idx), newToDo ,...oldToDo.slice(idx+1)];
+          const newToDo = {id,text,category:name as Categorys,category1};
+          if(name === REMOVE){
+                return [...oldToDo.slice(0,idx) ,...oldToDo.slice(idx+1)];
+            }else{
+                return [...oldToDo.slice(0,idx), newToDo ,...oldToDo.slice(idx+1)];
+            }
         });
       }
     return <>
         <LI>
-          <p className="cate">{category}</p>
+            {/* <p><input type="text" value={category1}/></p> */}
+          <p className="cate">{category1 === '' ? category : category1}</p>
           <p className="desc">{text}</p>
           <div>
           {category === Categorys.TODO || <button name={Categorys.TODO} onClick={onClick}>{Categorys.TODO}</button>}
           {category === Categorys.DOING || <button name={Categorys.DOING} onClick={onClick}>{Categorys.DOING}</button>}
-          {category === Categorys.DONE || <button name={Categorys.DONE} onClick={onClick}>{Categorys.DONE}</button>} 
+          {category === Categorys.DONE || <button name={Categorys.DONE} onClick={onClick}>{Categorys.DONE}</button>}
+          <button name={REMOVE} onClick={onClick}>{REMOVE}</button>
           </div>
         </LI>
     </>;
