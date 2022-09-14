@@ -48,7 +48,7 @@ function UserJoin(){
             setError('userPass1',{message:'위에 비밀번호가 다릅니다.'});
         };
         setJoinData(data);
-        navigate("/join/complete",  { state: { user:data.userId, hobby:data.hobby }});
+        navigate("/react_mid/join/complete",  { state: { user:data.userId, hobby:data.hobby }});
     };
     console.log('joinData',joinData.userId);
     return <div> 

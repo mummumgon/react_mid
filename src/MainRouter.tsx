@@ -3,7 +3,6 @@ import Home from "./Home";
 import Coins from "./coin/Coins";
 import CoinDetail from "./coin/CoinDetail";
 import ToDoList from "./toDo/ToDoList";
-import ToDoListDetail from "./toDo/ToDoDetail";
 import DragNDrop from "./dragDrop/DragNDrop";
 import DragNDropDetail from "./dragDrop/DragNDropDetail";
 import UserJoin from './toDo/UserJoin'
@@ -13,14 +12,13 @@ function MainRouter() {
   <Routes>
     <Route path="/react_mid" element={<Home/>}/>
     {/* COIN */}
-    <Route path="/coins" element={<Coins/>}/>
-    <Route path="/coins/:coinId/*" element={<CoinDetail/>}/>
+    <Route path="/react_mid/coins" element={<Coins/>}/>
+    <Route path="/react_mid/coins/:coinId/*" element={<CoinDetail/>}/>
     {/* TODO */}
-    <Route path="/todo" element={<ToDoList/>}/>
-    <Route path="/todo/detail" element={<ToDoListDetail/>}/>
+    <Route path="/react_mid/todo" element={<ToDoList/>}/>
     {/* Join */}
-    <Route path="/join" element={<UserJoin/>}/>
-    <Route path="/join/complete" element={<JoinComlpete/>}/>
+    <Route path="/react_mid/join" element={<UserJoin/>}/>
+    <Route path="/react_mid/join/complete" element={<JoinComlpete/>}/>
     {/* DragNDrop */}
     <Route path="/todos" element={<DragNDrop/>}/>
     <Route path="/ddrop/detail" element={<DragNDropDetail/>}/>

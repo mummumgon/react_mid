@@ -11,13 +11,13 @@ function Main() {
       <div className='container'>
             <h1 className='title dot'>= Home =</h1>
         <ul className="list_type">
-          <li><Link to='/coins'>Coin<em>&gt;</em></Link></li>
+          <li><Link to='/react_mid/coins'>Coin<em>&gt;</em></Link></li>
           <li>
             <button onClick={onClick}>Join & ToDoList<em>&gt;</em></button>
             { !view ? '' : 
             <div className="depth2">
-              <Link to="/join"><em>└ Sign Up</em><em>&gt;</em></Link>
-              <Link to="/todo"><em>└ ToDoList</em><em>&gt;</em></Link>
+              <Link to="/react_mid/join"><em>└ Sign Up</em><em>&gt;</em></Link>
+              <Link to="/react_mid/todo"><em>└ ToDoList</em><em>&gt;</em></Link>
             </div>
             }
           </li>

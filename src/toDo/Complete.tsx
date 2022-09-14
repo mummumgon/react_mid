@@ -29,7 +29,7 @@ function Complete(){
             </div>}
             <div className="flex_btw">
                 <Btn><Link to='/react_mid'>HOME으로 &gt;</Link></Btn>
-                <Btn><Link to='/join'>회원가입 폼으로 &gt;</Link></Btn>
+                <Btn><Link to='/react_mid/join'>회원가입 폼으로 &gt;</Link></Btn>
             </div>
         </div>
     </div>
