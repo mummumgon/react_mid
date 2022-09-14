@@ -7,6 +7,7 @@ import DragNDrop from "./dragDrop/DragNDrop";
 import DragNDropDetail from "./dragDrop/DragNDropDetail";
 import UserJoin from './toDo/UserJoin'
 import JoinComlpete from './toDo/Complete'
+import Selectors from "./setSelector/Selectors";
 function MainRouter() {
   return ( 
   <Routes>
@@ -19,6 +20,8 @@ function MainRouter() {
     {/* Join */}
     <Route path="/join" element={<UserJoin/>}/>
     <Route path="/join/complete" element={<JoinComlpete/>}/>
+    {/* Selectors */}
+    <Route path="/set" element={<Selectors/>}/>
     {/* DragNDrop */}
     <Route path="/todos" element={<DragNDrop/>}/>
     <Route path="/ddrop/detail" element={<DragNDropDetail/>}/>

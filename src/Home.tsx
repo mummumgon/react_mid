@@ -9,7 +9,7 @@ function Main() {
   return <div>
       <GlovalStyle/>
       <div className='container'>
-            <h1 className='title dot'>= Home =</h1>
+            <h1 className='title dot'>= Home(교육 진행중) =</h1>
         <ul className="list_type">
           <li><Link to='/coins'>Coin<em>&gt;</em></Link></li>
           <li>
@@ -20,6 +20,9 @@ function Main() {
               <Link to="/todo"><em>└ ToDoList</em><em>&gt;</em></Link>
             </div>
             }
+          </li>
+          <li>
+            {/* <Link to='/set'>Input 교차 값전달<em>&gt;</em></Link> */}
           </li>
           {/* <li><Link to='/todos'>Todo<em>&gt;</em></Link></li> */}
           {/* <li><Link to='/todos'>Drag N Drop<em>&gt;</em></Link></li> */}

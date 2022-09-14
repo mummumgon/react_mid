@@ -64,7 +64,7 @@ a{
 	color: ${props=>props.theme.coinColor.textColor};
 
 }
-input[type="text"],input[type="password"] , input[type="email"]{
+input[type="text"],input[type="password"] , input[type="email"], input[type="number"]{
 	width: 100%;
 	padding: 6px 10px;
 	border: 3px solid transparent;
@@ -121,8 +121,8 @@ select{
 .title{
 	font-size:32px;
   text-align: center;
-  padding: 25px 0;
-  margin: 25px 0;
+  padding: 12px 0;
+  margin: 12px 0;
 }.dot{
 	border-top:2px dotted #eee;
 border-bottom:2px dotted #eee;
