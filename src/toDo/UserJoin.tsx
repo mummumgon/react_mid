@@ -76,16 +76,16 @@ function UserJoin(){
                         <input type="text" {...register("userPass",{required:'Password를 입력하지 않으셨습니다.', 
                         pattern:{
                             value:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$/,
-                            message:'조건에 맞지 않습니다. 확인 후 다시 작성해'
+                            message:'조건에 맞지 않습니다. 확인 후 다시 작성해주세요'
                             }
                             })} placeholder="Password 입력해주세요" />
-                        {errors.userPass ? <Error>{errors.userPass.message}</Error> : <Hint>최소8자, 최소하나의 문자, 하나의 숫자 및 하나의 특수 문자(@!%*#?&) 조합해 주세요</Hint>}
+                        {errors.userPass ? <Error>{errors.userPass.message}</Error> : <Hint>최소8자, 최소영어1문자, 최소숫자1개 및 최소 특수 문자(@!%*#?&)1게 조합해 주세요(예:1111@aaa)</Hint>}
                     </li>
                     <li>
                         <label className="label pb20">Password 확인</label>
                         <input type="text" className={errors.userPass1 ? 'error': ''} {...register("userPass1",{required:'Password를 입력하지 않으셨습니다.',pattern:{
                             value:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@!%*#?&])[A-Za-z\d@!%*#?&]{8,}$/,
-                            message:'최소 8 자, 최소 하나의 문자, 하나의 숫자 및 하나의 특수 문자 조합해 주세요'
+                            message:'조건에 맞지 않습니다. 확인 후 다시 작성해주세요'
                             }})} placeholder="Password를 다시 한번 적어주세요" />
                         {errors.userPass1 ? <Error>{errors.userPass1.message}</Error> : ''}
                     </li>
