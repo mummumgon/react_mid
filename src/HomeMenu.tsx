@@ -17,7 +17,8 @@ function HomeMenu({btnName,menu1,mene2,link1,link2}:IMenu){
     { !view ? '' : 
     <div className="depth2">
       <Link to={link1}><em>└ {menu1}</em><em>&gt;</em></Link>
-      <Link to={link2!}><em>└ {mene2}</em><em>&gt;</em></Link>
+      <Link to={(link2 !== undefined) ? link2 : ''}><em>└ {mene2}</em><em>&gt;</em></Link>
+
     </div>
     }
   </li>)
