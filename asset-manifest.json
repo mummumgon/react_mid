@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/react_mid/static/js/main.d600cc2a.js",
+    "main.js": "/react_mid/static/js/main.cdc7fcdb.js",
     "index.html": "/react_mid/index.html",
-    "main.d600cc2a.js.map": "/react_mid/static/js/main.d600cc2a.js.map"
+    "main.cdc7fcdb.js.map": "/react_mid/static/js/main.cdc7fcdb.js.map"
   },
   "entrypoints": [
-    "static/js/main.d600cc2a.js"
+    "static/js/main.cdc7fcdb.js"
   ]
 }
