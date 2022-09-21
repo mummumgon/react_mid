@@ -1,5 +1,6 @@
 import { useLocation , Link } from "react-router-dom";
 import styled from "styled-components";
+import {Helmet} from "react-helmet";
 const Btn = styled.button`
     display: inline-block;
     width: 50%;
@@ -17,6 +18,9 @@ function Complete(){
     const {user} = state;
     const {hobby} = state;
     return <div>
+             <Helmet>
+                <title>회원가입완료</title>
+            </Helmet>
         <div className="container" style={{textAlign:'center'}}>
             <h1 className="title">{user}님,</h1>
             <p style={{lineHeight:'26px'}}>가입을<br/>축하드립니다!</p>

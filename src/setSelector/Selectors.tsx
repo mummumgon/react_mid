@@ -1,6 +1,7 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { hoursSelector, minuteState } from "../atom";
-import ToDoHeader from '../toDo/ToDoHeader'
+import ToDoHeader from '../toDo/ToDoHeader';
+import {Helmet} from "react-helmet";
 function Selectors(){
     const [minute, setMinute] = useRecoilState(minuteState);
     const [houre, setHoure] = useRecoilState(hoursSelector);
@@ -12,6 +13,9 @@ function Selectors(){
     };
 
     return <div>
+        <Helmet>
+                <title>Input교차 값 변경</title>
+            </Helmet>
         <ToDoHeader/>
         <div className="container">
             <h1 className="title">Recoil Selector</h1>

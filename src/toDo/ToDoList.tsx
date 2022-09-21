@@ -12,7 +12,7 @@ import { Categorys, categoryState, todoSelector } from "../atom"
 import ToDo from "./ToDo";
 import ToDoCreat from "./ToDoCreat";
 import ToDoHeader from "./ToDoHeader";
-
+import {Helmet} from "react-helmet";
 const SelectBox = styled.div`
   text-align: right;
   margin: 30px 0 0;
@@ -26,7 +26,11 @@ function ToDoList(){
     const {value} = e.currentTarget;
     setCate(value as any);
   }
-  return <div><ToDoHeader/>
+  return <div>
+       <Helmet>
+                <title>ToDoList</title>
+            </Helmet>
+    <ToDoHeader/>
     <div className='container'>
     <ToDoCreat/>
     <SelectBox>

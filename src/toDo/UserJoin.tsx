@@ -13,6 +13,7 @@ import styled from "styled-components";
 import {joinState} from "../atom";
 import ToDoHeader from "./ToDoHeader";
 import { useNavigate } from 'react-router-dom';
+import {Helmet} from "react-helmet";
 const Btn = styled.button`
     width: 100%;
     padding: 10px;
@@ -51,6 +52,9 @@ function UserJoin(){
         navigate("/join/complete",  { state: { user:data.userId, hobby:data.hobby }});
     };
     return <div> 
+           <Helmet>
+                <title>회원가입</title>
+            </Helmet>
         <ToDoHeader/>
         <div className="container">
             <h1 className="title">회원가입</h1>

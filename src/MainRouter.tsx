@@ -8,8 +8,8 @@ import DragNDropDetail from "./dragDrop/DragNDropDetail";
 import UserJoin from './toDo/UserJoin'
 import JoinComlpete from './toDo/Complete'
 import Selectors from "./setSelector/Selectors";
-import Chapter1 from "./animation/Chapter1";
 import Chapter2 from "./animation/Chapter2";
+import Main from "./movie/Main";
 function MainRouter() {
   return ( 
   <Routes>
@@ -22,6 +22,8 @@ function MainRouter() {
     {/* Join */}
     <Route path="/join" element={<UserJoin/>}/>
     <Route path="/join/complete" element={<JoinComlpete/>}/>
+    {/* movie */}
+    <Route path="/main" element={<Main/>}/>
     {/*기타 - Selectors */}
     <Route path="/set" element={<Selectors/>}/>
     <Route path="/ani" element={<Chapter2/>}/>

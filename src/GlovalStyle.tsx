@@ -154,6 +154,7 @@ border-bottom:2px dotted #eee;
 		  padding: 10px 20px;
 		  font-size:20px;
 		  line-height: 30px;
+		  flex-wrap: wrap;
 			border: 0;
 			cursor: pointer;
 			:hover{
@@ -168,7 +169,7 @@ border-bottom:2px dotted #eee;
 				height: 30px;
 			}
         }
-	
+		p{font-size:14px;color:#179dfd}
 		.depth2{
 			 > a, >button{
 				background-color: transparent;
@@ -176,6 +177,7 @@ border-bottom:2px dotted #eee;
 				border-bottom: 1px solid ${props => props.theme.coinColor.textColor};
 				padding: 10px 20px;
 			}
+			p{width:100%; padding:0 0 5px 5px; }
 		}
     }
 	/* 폼리스트타입 */

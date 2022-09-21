@@ -1,7 +1,7 @@
 import {  useState  } from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-
+import {Helmet} from "react-helmet";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -86,6 +86,9 @@ function Chapter2() {
 };
   return (
     <div style={{overflow: 'hidden'}}>
+         <Helmet>
+                <title>animation 구현</title>
+            </Helmet>
     <Wrapper onClick={ontoggle}>
     <Grid>
     <AnimatePresence/>
