@@ -2,6 +2,7 @@ import GlovalStyle from "./GlovalStyle";
 import styled from "styled-components";
 import {Link } from 'react-router-dom';
 import { useState } from "react";
+import HomeMenu from "./HomeMenu";
 
 function Main() {
   const [view , setView] = useState(false);
@@ -12,18 +13,8 @@ function Main() {
             <h1 className='title dot'>= Home =</h1>
         <ul className="list_type">
           <li><Link to='/coins'>Coin<em>&gt;</em></Link></li>
-          <li>
-            <button onClick={onClick}>Join & ToDoList<em>&gt;</em></button>
-            { !view ? '' : 
-            <div className="depth2">
-              <Link to="/join"><em>└ Sign Up</em><em>&gt;</em></Link>
-              <Link to="/todo"><em>└ ToDoList</em><em>&gt;</em></Link>
-            </div>
-            }
-          </li>
-          <li>
-          <Link to='/set'>Input 교차 값전달<em>&gt;</em></Link>
-          </li>
+          <HomeMenu btnName='Join & ToDoList' menu1='Sign Up' link1='/join' mene2='ToDoList' link2='/todo'/>
+          <HomeMenu btnName='Module' menu1='Input 교차 변화 (Recoil.Selector)' link1='/set' mene2='animation (framer-motion)' link2='/ani'/>
           {/* <li><Link to='/todos'>Todo<em>&gt;</em></Link></li> */}
           {/* <li><Link to='/todos'>Drag N Drop<em>&gt;</em></Link></li> */}
 
