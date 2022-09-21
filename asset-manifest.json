@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/react_mid/static/js/main.0c41356a.js",
+    "main.js": "/react_mid/static/js/main.d600cc2a.js",
     "index.html": "/react_mid/index.html",
-    "main.0c41356a.js.map": "/react_mid/static/js/main.0c41356a.js.map"
+    "main.d600cc2a.js.map": "/react_mid/static/js/main.d600cc2a.js.map"
   },
   "entrypoints": [
-    "static/js/main.0c41356a.js"
+    "static/js/main.d600cc2a.js"
   ]
 }
